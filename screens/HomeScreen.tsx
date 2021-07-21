@@ -1,22 +1,40 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import Album from '../components/Album'
+import AlbumCategory from '../components/AlbumCategory'
 
-
-const album = {
-  album: {
+const albumCategory = {
+  id: '1',
+  title: 'Happy Vibes',
+  albums: [{
     id: '1',
-    imageUri: 'https://cache.boston.com/resize/bonzai-fba/Globe_Photo/2011/04',
-    artistsHeadline: 'Taylor Swift, Cardi B, Avicii'
-  }
-  
+    imageUri: '',
+    artistsHeadline: 'Taylor Swift, Kygo, Avicii'
+  }, 
+{
+  id: '2',
+  imageUri: '',
+  artistsHeadline: 'Post Malone, Drake, Eminem'
+},
+{
+  id: '3',
+  imageUri: '',
+  artistsHeadline: 'Journey, Escape, Avicii'
+},
+{
+  id: '4',
+  imageUri: '',
+  artistsHeadline: 'Bob Marley, Cardi B, Stas Mihailov'
 }
+
+  ]
+}
+
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Album album={album} />
+      <AlbumCategory title={albumCategory.title} albums={albumCategory.albums} />
     </View>
   );
 }
