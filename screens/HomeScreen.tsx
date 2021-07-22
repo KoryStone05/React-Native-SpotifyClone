@@ -1,40 +1,23 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, FlatList, View } from 'react-native';
+
 
 import AlbumCategory from '../components/AlbumCategory'
-
-const albumCategory = {
-  id: '1',
-  title: 'Happy Vibes',
-  albums: [{
-    id: '1',
-    imageUri: '',
-    artistsHeadline: 'Taylor Swift, Kygo, Avicii'
-  }, 
-{
-  id: '2',
-  imageUri: '',
-  artistsHeadline: 'Post Malone, Drake, Eminem'
-},
-{
-  id: '3',
-  imageUri: '',
-  artistsHeadline: 'Journey, Escape, Avicii'
-},
-{
-  id: '4',
-  imageUri: '',
-  artistsHeadline: 'Bob Marley, Cardi B, Stas Mihailov'
-}
-
-  ]
-}
-
+import albumCategories from '../data/albumCategories';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <AlbumCategory title={albumCategory.title} albums={albumCategory.albums} />
+      <FlatList 
+      data={albumCategories}
+      renderItem={({item}) => (
+      <AlbumCategory 
+      title={item.title} 
+      albums={item.albums}
+      />
+        )}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 }
